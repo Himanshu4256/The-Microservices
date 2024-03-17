@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.quiz.entities.Quiz;
+import com.quiz.documents.Quiz;
 import com.quiz.service.QuizService;
 
 @RestController
-@RequestMapping("/question")
+@RequestMapping("/quiz")
 public class QuizController {
 	
 	private QuizService quizService;

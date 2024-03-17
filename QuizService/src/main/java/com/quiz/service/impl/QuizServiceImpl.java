@@ -2,7 +2,8 @@ package com.quiz.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.quiz.entities.Quiz;
+
+import com.quiz.documents.Quiz;
 import com.quiz.repository.QuizRepository;
 import com.quiz.service.QuizService;
 

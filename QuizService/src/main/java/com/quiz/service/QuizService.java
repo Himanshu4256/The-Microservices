@@ -2,7 +2,7 @@ package com.quiz.service;
 
 import java.util.List;
 
-import com.quiz.entities.Quiz;
+import com.quiz.documents.Quiz;
 
 public interface QuizService {
 		Quiz add(Quiz quiz);

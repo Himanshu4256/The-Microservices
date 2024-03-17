@@ -1,21 +1,20 @@
-package com.quiz.entities;
+package com.questions.documents;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection = "QuizData")
+@Document
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Quiz {
-	
+public class Questions {
 	@Id
-	private Long id;
-	private String title;
-	private Long quizId;
+	private int questionId;
+	private String question;
+	private Long quizid;
+
 }
