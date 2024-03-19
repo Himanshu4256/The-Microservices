@@ -1,6 +1,8 @@
 package com.quiz.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.quiz.documents.Quiz;
@@ -12,10 +14,12 @@ public class QuizServiceImpl implements QuizService{
 
 	  
 	private QuizRepository quizRepository;
-	
-	public QuizServiceImpl(QuizRepository quizRepository) {
+	private QuestionClient questionClient;
+
+	public QuizServiceImpl(QuizRepository quizRepository, QuestionClient questionClient) {
 		super();
 		this.quizRepository = quizRepository;
+		this.questionClient = questionClient;
 	}
 
 	@Override
@@ -26,12 +30,20 @@ public class QuizServiceImpl implements QuizService{
 
 	@Override
 	public List<Quiz> get() {
-		return quizRepository.findAll();
+		 List<Quiz> quizzes = quizRepository.findAll();
+		 
+		 List<Quiz> newQuizList = quizzes.stream().map(quiz -> {
+			 quiz.setQuestions(questionClient.findQuestionsOfQuiz(quiz.getId()));
+			 return quiz;
+		 }).collect(Collectors.toList());
+		 return newQuizList;
 	}
 
 	@Override
 	public Quiz getOne(Long id) {
- 		return quizRepository.findById(id).orElseThrow(()-> new RuntimeException("Question not fund") );
+ 		 Quiz quiz = quizRepository.findById(id).orElseThrow(()-> new RuntimeException("Question not fund") );
+ 		 quiz.setQuestions(questionClient.findQuestionsOfQuiz(quiz.getId()));
+ 		 return quiz;
 	}
 
 }

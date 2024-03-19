@@ -1,13 +1,13 @@
-package com.questions;
+package com.registryserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class QuestionServiceApplication {
+public class ServiceRegistryServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(QuestionServiceApplication.class, args);
+		SpringApplication.run(ServiceRegistryServerApplication.class, args);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.quiz.documents;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,4 +20,6 @@ public class Quiz {
 	private Long id;
 	private String title;
 	private Long quizId;
+	
+	transient private List<Questions> questions;  
 }
