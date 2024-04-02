@@ -12,5 +12,4 @@ public class Questions {
 	private int questionId;
 	private String question;
 	private Long quizid;
-
 }
